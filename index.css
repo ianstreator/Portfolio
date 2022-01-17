@@ -162,6 +162,10 @@ nav ul li a {
           box-shadow: 0rem 1rem 1rem 0rem rgba(0, 0, 0, 0.5);
 }
 
+.projects .card-container .card:hover a img, .projects .card-container .card:active a img {
+  opacity: 1;
+}
+
 .projects .card-container .card .card-info {
   width: 15rem;
 }
@@ -172,7 +176,7 @@ nav ul li a {
 }
 
 .projects .card-container .card .card-info p {
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: lighter;
   max-height: 2.25rem;
