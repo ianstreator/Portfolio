@@ -182,6 +182,16 @@ nav ul li a {
   margin-top: 0.75rem;
 }
 
+.projects .card-container .card a img {
+  opacity: .6;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+.projects .card-container .card a img:hover {
+  opacity: 1;
+}
+
 .projects .card-container .card .card-skills {
   width: auto;
   margin-left: auto;
@@ -271,14 +281,6 @@ footer a {
     margin: 1rem;
     min-width: 27.5rem;
     position: relative;
-  }
-  .projects .card-container .card a img {
-    opacity: .6;
-    -webkit-transition: 500ms;
-    transition: 500ms;
-  }
-  .projects .card-container .card a img:hover {
-    opacity: 1;
   }
   .projects .card-container .card .card-skills img {
     width: 3.5rem;
