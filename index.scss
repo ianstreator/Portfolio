@@ -203,10 +203,19 @@ footer {
       .card {
         margin-left: unset;
         margin: 1rem;
-        min-width: 26rem;
+        min-width: 27.5rem;
         position: relative;
         &:hover {
           // padding-bottom: 10rem;
+        }
+        a {
+          img {
+            opacity: .6;
+            transition: 500ms;
+            &:hover {
+              opacity: 1;
+            }
+          }
         }
         .card-skills {
           img {
