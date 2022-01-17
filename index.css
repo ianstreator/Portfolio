@@ -156,7 +156,7 @@ nav ul li a {
   transition: all 0.25s ease 0s;
 }
 
-.projects .card-container .card:hover {
+.projects .card-container .card:hover, .projects .card-container .card:active {
   top: -0.75rem;
   -webkit-box-shadow: 0rem 1rem 1rem 0rem rgba(0, 0, 0, 0.5);
           box-shadow: 0rem 1rem 1rem 0rem rgba(0, 0, 0, 0.5);
@@ -175,6 +175,7 @@ nav ul li a {
   font-size: 1rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: lighter;
+  max-height: 2.25rem;
 }
 
 .projects .card-container .card .card-info img {
@@ -183,7 +184,7 @@ nav ul li a {
 }
 
 .projects .card-container .card a img {
-  opacity: .6;
+  opacity: 0.6;
   -webkit-transition: 500ms;
   transition: 500ms;
 }
