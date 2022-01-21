@@ -185,7 +185,7 @@ nav ul li a {
   text-align: center;
   text-decoration: underline;
   position: absolute;
-  width: 50%;
+  width: 40%;
   -webkit-transition: 400ms;
   transition: 400ms;
 }
@@ -210,8 +210,8 @@ nav ul li a {
           filter: none;
 }
 
-.projects .card-container .card:hover a:hover p, .projects .card-container .card:active a:hover p {
-  color: rgba(0, 0, 0, 0);
+.projects .card-container .card:hover a:hover .link, .projects .card-container .card:active a:hover .link {
+  color: rgba(255, 255, 255, 0);
 }
 
 .projects .card-container .card .card-info {

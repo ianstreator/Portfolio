@@ -134,7 +134,7 @@ nav {
           text-align: center;
           text-decoration: underline;
           position: absolute;
-          width: 50%;
+          width: 40%;
           transition: 400ms;
         }
       }
@@ -152,8 +152,8 @@ nav {
             img {
               filter: none;
             }
-            p {
-              color: rgba(0, 0, 0, 0);
+            .link {
+              color: rgba(255, 255, 255, 0);
             }
           }
         }
@@ -245,6 +245,11 @@ footer {
         width: 35rem;
         margin: 2rem;
         // position: relative;
+        a {
+          p {
+            // width: 10rem;
+          }
+        }
 
         .card-skills {
           img {
