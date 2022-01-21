@@ -3,6 +3,9 @@
           box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
@@ -48,6 +51,7 @@ nav {
   left: 0;
   right: 0;
   padding: 2rem;
+  z-index: 1;
 }
 
 nav ul {
@@ -94,7 +98,7 @@ nav ul li a {
 }
 
 .divider {
-  height: 15rem;
+  height: 17.5rem;
   display: block;
   background-position: center;
   background-image: url("./images/Divider.svg");
@@ -156,6 +160,36 @@ nav ul li a {
   transition: all 0.25s ease 0s;
 }
 
+.projects .card-container .card a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.projects .card-container .card a img {
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+
+.projects .card-container .card a .link {
+  text-align: center;
+  text-decoration: underline;
+  position: absolute;
+  width: 50%;
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
 .projects .card-container .card:hover, .projects .card-container .card:active {
   top: -0.75rem;
   -webkit-box-shadow: 0rem 1rem 1rem 0rem rgba(0, 0, 0, 0.5);
@@ -164,6 +198,20 @@ nav ul li a {
 
 .projects .card-container .card:hover a img, .projects .card-container .card:active a img {
   opacity: 1;
+}
+
+.projects .card-container .card:hover a:hover, .projects .card-container .card:active a:hover {
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
+.projects .card-container .card:hover a:hover img, .projects .card-container .card:active a:hover img {
+  -webkit-filter: none;
+          filter: none;
+}
+
+.projects .card-container .card:hover a:hover p, .projects .card-container .card:active a:hover p {
+  color: rgba(0, 0, 0, 0);
 }
 
 .projects .card-container .card .card-info {
@@ -243,7 +291,38 @@ footer a {
   margin: 1rem;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1500px) {
+  html {
+    font-size: 14px;
+  }
+  .projects .card-container .card {
+    min-width: 26rem;
+  }
+}
+
+@media screen and (max-width: 1375px) {
+  .projects {
+    margin-bottom: 2rem;
+  }
+  .projects .card-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .projects .card-container .card {
+    width: 35rem;
+    margin: 2rem;
+  }
+  .projects .card-container .card .card-skills img {
+    width: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
   html {
     font-size: 12px;
   }
@@ -280,11 +359,14 @@ footer a {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: unset;
+        -ms-flex-align: unset;
+            align-items: unset;
   }
   .projects .card-container .card {
     margin-left: unset;
     margin: 1rem;
-    min-width: 27.5rem;
+    width: 27.5rem;
     position: relative;
   }
   .projects .card-container .card .card-skills img {

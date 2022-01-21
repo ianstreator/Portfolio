@@ -2,8 +2,10 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html {
   scroll-behavior: smooth;
-  // transition: 200ms;
 }
 
 :root {
@@ -34,6 +36,7 @@ nav {
   left: 0;
   right: 0;
   padding: 2rem;
+  z-index: 1;
   ul {
     display: flex;
     color: white;
@@ -75,7 +78,7 @@ nav {
 }
 
 .divider {
-  height: 15rem;
+  height: 17.5rem;
   display: block;
   background-position: center;
   background-image: url("./images/Divider.svg");
@@ -119,6 +122,22 @@ nav {
       position: relative;
       top: 0;
       transition: all 0.25s ease 0s;
+      a {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        img {
+          filter: blur(2px);
+        }
+        .link {
+          text-align: center;
+          text-decoration: underline;
+          position: absolute;
+          width: 50%;
+          transition: 400ms;
+        }
+      }
       &:hover,
       &:active {
         top: -0.75rem;
@@ -126,6 +145,16 @@ nav {
         a {
           img {
             opacity: 1;
+          }
+          &:hover {
+            transition: 400ms;
+
+            img {
+              filter: none;
+            }
+            p {
+              color: rgba(0, 0, 0, 0);
+            }
           }
         }
       }
@@ -187,8 +216,46 @@ footer {
     margin: 1rem;
   }
 }
+@media screen and (max-width: 1500px) {
+  html {
+    font-size: 14px;
+  }
+  .projects {
+    .card-container {
+      .card {
+        min-width: 26rem;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1375px) {
+  html {
+    // font-size: 13px;
+  }
+  .projects {
+    // margin-left: 0rem;
+    margin-bottom: 2rem;
+    // align-items: center;
+    .card-container {
+      flex-direction: column;
+      align-items: center;
+      .card {
+        // margin-left: unset;
+        // margin: 1rem;
+        width: 35rem;
+        margin: 2rem;
+        // position: relative;
 
-@media screen and (max-width: 600px) {
+        .card-skills {
+          img {
+            width: 3.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 850px) {
   html {
     font-size: 12px;
   }
@@ -214,10 +281,11 @@ footer {
     margin-bottom: 5rem;
     .card-container {
       flex-direction: column;
+      align-items: unset;
       .card {
         margin-left: unset;
         margin: 1rem;
-        min-width: 27.5rem;
+        width: 27.5rem;
         position: relative;
 
         .card-skills {
