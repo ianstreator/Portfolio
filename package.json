@@ -2,6 +2,7 @@
   "name": "ian-s-portfolio",
   "version": "0.0.0",
   "scripts": {
+    "start": "vite --port $PORT",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
