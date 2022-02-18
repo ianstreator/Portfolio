@@ -23,12 +23,6 @@ const c = canvas.getContext("2d");
 const width = 400;
 const height = 400;
 
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-}
-
 function setVelocity() {
   const X = Math.random() < 0.5 ? Math.random() : -Math.random();
   const Y = Math.random() < 0.5 ? -Math.random() : Math.random();
