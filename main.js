@@ -1,4 +1,4 @@
-import technologies from "./images/export.js";
+// import technologies from "./images/export.js";
 
 const card = document.getElementsByClassName("card");
 Object.values(card).forEach((e) => {
@@ -16,6 +16,7 @@ Object.values(card).forEach((e) => {
     });
   });
 });
+
 
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
@@ -124,9 +125,38 @@ class Skill {
     }
   }
 }
+
+
+const technologies = [
+  "/images/figma().svg",
+  "/images/firebase().svg",
+  "/images/gatsby().svg",
+  "/images/go().svg",
+  "/images/javascript().svg",
+  "/images/typescript().svg",
+  "/images/strapi().svg",
+  "/images/sass().svg",
+  "/images/react().svg",
+  "/images/node().svg",
+  "/images/mongoDB().svg",
+  "/images/postgres().svg",
+  "/images/figma(1).svg",
+  "/images/firebase(1).svg",
+  "/images/gatsby(1).svg",
+  "/images/go(1).svg",
+  "/images/javascript(1).svg",
+  "/images/typescript(1).svg",
+  "/images/strapi(1).svg",
+  "/images/sass(1).svg",
+  "/images/react(1).svg",
+  "/images/node(1).svg",
+  "/images/mongoDB(1).svg",
+  "/images/postgres(1).svg",
+]
+
 let x = 0;
 let y = 0;
-const skillsFilter = technologies.images.filter((e) => e.includes("1"));
+const skillsFilter = technologies.filter((e) => e.includes("1"));
 
 const skills = skillsFilter.map((e) => {
   const img = document.createElement("img");
