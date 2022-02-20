@@ -6,13 +6,14 @@ Object.values(card).forEach((e) => {
 
   e.addEventListener("mouseenter", () => {
     Object.values(cardSkills).forEach((a) => {
-      a.src = coloredSkills.find(e => e.includes(a.src.split(".")[0].split("/")[4].split("(")[0]))
+      a.src = coloredSkills.find(e => e.includes(a.src.split("/")[4].split(".")[0].split("(")[0]))
+      // console.log(a.src.split("/")[4].split(".")[0].split("(")[0])
     });
   });
 
   e.addEventListener("mouseleave", () => {
     Object.values(cardSkills).forEach((a) => {
-      a.src = mutedSkills.find(e => e.includes(a.src.split(".")[0].split("/")[4].split("(")[0]))
+      a.src = mutedSkills.find(e => e.includes(a.src.split("/")[4].split(".")[0].split("(")[0]))
     });
   });
 });
