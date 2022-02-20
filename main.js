@@ -6,13 +6,13 @@ Object.values(card).forEach((e) => {
 
   e.addEventListener("mouseenter", () => {
     Object.values(cardSkills).forEach((a) => {
-      a.src = a.src.replace("(1)", "()");
+      a.src = coloredSkills.find(e => e.includes(a.src.split(".")[0].split("/")[4].split("(")[0]))
     });
   });
 
   e.addEventListener("mouseleave", () => {
     Object.values(cardSkills).forEach((a) => {
-      a.src = a.src.replace("()", "(1)");
+      a.src = mutedSkills.find(e => e.includes(a.src.split(".")[0].split("/")[4].split("(")[0]))
     });
   });
 });
@@ -103,7 +103,7 @@ class Skill {
       c.shadowBlur = 10;
       c.shadowColor = "#fefae0";
       this.hover = true;
-      this.image.src = coloredSkills[this.index]
+      this.image.src = coloredSkills[this.index];
     } else {
       if (this.velocity.x === 0) {
         this.velocity = setVelocity();
@@ -117,7 +117,7 @@ class Skill {
       this.color = "rgba(0,0,0,0)";
       c.shadowBlur = 0;
       this.hover = false;
-      this.image.src = mutedSkills[this.index]
+      this.image.src = mutedSkills[this.index];
     }
     if (skill_dist_border > width / 2 + this.r) {
       this.x = width / 2;
