@@ -7,7 +7,6 @@ Object.values(card).forEach((e) => {
   e.addEventListener("mouseenter", () => {
     Object.values(cardSkills).forEach((a) => {
       a.src = coloredSkills.find(e => e.includes(a.src.split("/")[4].split(".")[0].split("(")[0]))
-      // console.log(a.src.split("/")[4].split(".")[0].split("(")[0])
     });
   });
 
@@ -100,9 +99,9 @@ class Skill {
         this.r += 0.5;
         this.imgOffset += 0.5;
       }
-      this.color = "#fefae0";
-      c.shadowBlur = 10;
-      c.shadowColor = "#fefae0";
+      this.color = "#dee2e6";
+      // c.shadowBlur = 2;
+      // c.shadowColor = "#dee2e6";
       this.hover = true;
       this.image.src = coloredSkills[this.index];
     } else {
