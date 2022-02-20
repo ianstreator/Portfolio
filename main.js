@@ -27,13 +27,14 @@ function setVelocity() {
   const X = Math.random() < 0.5 ? Math.random() : -Math.random();
   const Y = Math.random() < 0.5 ? -Math.random() : Math.random();
 
-  const velocity = { x: X/3, y: Y/3 };
+  const velocity = { x: X / 3, y: Y / 3 };
   return velocity;
 }
 
 class Skill {
-  constructor(image, x, y, r, velocity, color, w, h, hover, imgOffset) {
+  constructor(image, index, x, y, r, velocity, color, w, h, hover, imgOffset) {
     (this.image = image),
+      (this.index = index),
       (this.x = x),
       (this.y = y),
       (this.r = r),
@@ -47,17 +48,17 @@ class Skill {
   draw() {
     this.update();
     c.beginPath();
-    c.arc(
-      this.x,
-      this.y,
-      this.r,
-      0,
-      Math.PI * 2
-    );
+    c.arc(this.x, this.y, this.r, 0, Math.PI * 2);
     this.hover ? (c.fillStyle = this.color) : (c.strokeStyle = this.color);
     c.lineWidth = 2;
     this.hover ? c.fill() : c.stroke();
-    c.drawImage(this.image, this.x - this.imgOffset, this.y - this.imgOffset, this.w, this.h);
+    c.drawImage(
+      this.image,
+      this.x - this.imgOffset,
+      this.y - this.imgOffset,
+      this.w,
+      this.h
+    );
   }
   update() {
     this.x += this.velocity.x;
@@ -78,15 +79,15 @@ class Skill {
       const angle = Math.atan2(e.y - this.y, e.x - this.x);
 
       if (skill_dist_skill < this.r + e.r) {
-        this.velocity.x = -Math.cos(angle)/3;
-        this.velocity.y = -Math.sin(angle)/3;
+        this.velocity.x = -Math.cos(angle) / 3;
+        this.velocity.y = -Math.sin(angle) / 3;
       }
     });
 
     if (skill_dist_border > width / 2 - this.r) {
       const angle = Math.atan2(height / 2 - this.y, width / 2 - this.x);
-      this.velocity.x = Math.cos(angle)/3;
-      this.velocity.y = Math.sin(angle)/3;
+      this.velocity.x = Math.cos(angle) / 3;
+      this.velocity.y = Math.sin(angle) / 3;
     }
 
     if (mouse_dist_skill < this.r) {
@@ -102,7 +103,7 @@ class Skill {
       c.shadowBlur = 10;
       c.shadowColor = "#fefae0";
       this.hover = true;
-      this.image.src = this.image.src.replace("(1)", "()");
+      this.image.src = coloredSkills[this.index]
     } else {
       if (this.velocity.x === 0) {
         this.velocity = setVelocity();
@@ -116,7 +117,7 @@ class Skill {
       this.color = "rgba(0,0,0,0)";
       c.shadowBlur = 0;
       this.hover = false;
-      this.image.src = this.image.src.replace("()", "(1)");
+      this.image.src = mutedSkills[this.index]
     }
     if (skill_dist_border > width / 2 + this.r) {
       this.x = width / 2;
@@ -126,9 +127,11 @@ class Skill {
 }
 let x = 0;
 let y = 0;
-const skillsFilter = technologies.images.filter((e) => e.includes("1"));
 
-const skills = skillsFilter.map((e) => {
+const mutedSkills = technologies.images.filter((e) => e.includes("(1)"));
+const coloredSkills = technologies.images.filter((e) => e.includes("()"));
+
+const skills = mutedSkills.map((e, i) => {
   const img = document.createElement("img");
   img.src = e;
   y++;
@@ -138,6 +141,7 @@ const skills = skillsFilter.map((e) => {
   }
   const skill = new Skill(
     img,
+    i,
     (x += 30),
     height / 2 - 25 + ySet,
     25,
