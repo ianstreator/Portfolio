@@ -100,8 +100,6 @@ class Skill {
         this.imgOffset += 0.5;
       }
       this.color = "#dee2e6";
-      // c.shadowBlur = 2;
-      // c.shadowColor = "#dee2e6";
       this.hover = true;
       this.image.src = coloredSkills[this.index];
     } else {
