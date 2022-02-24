@@ -1,8 +1,16 @@
 import technologies from "./images/export.js";
 
-const imageMap = {};
-const imageMapGuide = [];
-technologies.images.forEach((img) => console.log(img));
+const mutedSkills = {};
+const coloredSkills = {};
+
+technologies.images.forEach((img) => {
+  const imgName = img.split("/")[2].split(".")[0].split("(")[0];
+  if (img.includes("()")) {
+    coloredSkills[imgName] = img;
+  } else {
+    mutedSkills[imgName] = img;
+  }
+});
 
 const card = document.getElementsByClassName("card");
 Object.values(card).forEach((e) => {
@@ -10,17 +18,15 @@ Object.values(card).forEach((e) => {
 
   e.addEventListener("mouseenter", () => {
     Object.values(cardSkills).forEach((a) => {
-      a.src = coloredSkills.find((e) =>
-        e.includes(a.src.split("/")[4].split(".")[0].split("(")[0])
-      );
+      const imgName = a.src.split("/")[4].split(".")[0].split("(")[0];
+      a.src = coloredSkills[imgName];
     });
   });
 
   e.addEventListener("mouseleave", () => {
     Object.values(cardSkills).forEach((a) => {
-      a.src = mutedSkills.find((e) =>
-        e.includes(a.src.split("/")[4].split(".")[0].split("(")[0])
-      );
+      const imgName = a.src.split("/")[4].split(".")[0].split("(")[0];
+      a.src = mutedSkills[imgName];
     });
   });
 });
@@ -134,22 +140,9 @@ class Skill {
 let x = 0;
 let y = 0;
 
-// const mutedSkills = {};
-// const coloredSkills = {};
-// (() => {
-//   technologies.images.forEach(img => {
-//     const imgName = img.split("/")[4].split(".")[0].split("(")[0]
-//     if (img.includes("()")) {
-//       coloredSkills.
-//     } else {
-
-//     }
-//   })
-// })();
-const mutedSkills = technologies.images.filter((e) => e.includes("(1)"));
-const coloredSkills = technologies.images.filter((e) => e.includes("()"));
-
-const skills = mutedSkills.map((e, i) => {
+const skills = Object.values(mutedSkills).map((e, i) => {
+  const imgName = e.split("/")[2].split(".")[0].split("(")[0];
+  console.log(imgName)
   const img = document.createElement("img");
   img.src = e;
   y++;
@@ -159,7 +152,7 @@ const skills = mutedSkills.map((e, i) => {
   }
   const skill = new Skill(
     img,
-    i,
+    imgName,
     (x += 30),
     height / 2 - 25 + ySet,
     25,
