@@ -1,18 +1,26 @@
 import technologies from "./images/export.js";
 
+const imageMap = {};
+const imageMapGuide = [];
+technologies.images.forEach((img) => console.log(img));
+
 const card = document.getElementsByClassName("card");
 Object.values(card).forEach((e) => {
   const cardSkills = e.children[1].children;
 
   e.addEventListener("mouseenter", () => {
     Object.values(cardSkills).forEach((a) => {
-      a.src = coloredSkills.find(e => e.includes(a.src.split("/")[4].split(".")[0].split("(")[0]))
+      a.src = coloredSkills.find((e) =>
+        e.includes(a.src.split("/")[4].split(".")[0].split("(")[0])
+      );
     });
   });
 
   e.addEventListener("mouseleave", () => {
     Object.values(cardSkills).forEach((a) => {
-      a.src = mutedSkills.find(e => e.includes(a.src.split("/")[4].split(".")[0].split("(")[0]))
+      a.src = mutedSkills.find((e) =>
+        e.includes(a.src.split("/")[4].split(".")[0].split("(")[0])
+      );
     });
   });
 });
@@ -126,6 +134,18 @@ class Skill {
 let x = 0;
 let y = 0;
 
+// const mutedSkills = {};
+// const coloredSkills = {};
+// (() => {
+//   technologies.images.forEach(img => {
+//     const imgName = img.split("/")[4].split(".")[0].split("(")[0]
+//     if (img.includes("()")) {
+//       coloredSkills.
+//     } else {
+
+//     }
+//   })
+// })();
 const mutedSkills = technologies.images.filter((e) => e.includes("(1)"));
 const coloredSkills = technologies.images.filter((e) => e.includes("()"));
 
