@@ -142,7 +142,6 @@ let y = 0;
 
 const skills = Object.values(mutedSkills).map((e, i) => {
   const imgName = e.split("/")[2].split(".")[0].split("(")[0];
-  console.log(imgName)
   const img = document.createElement("img");
   img.src = e;
   y++;
