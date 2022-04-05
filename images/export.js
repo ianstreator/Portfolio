@@ -24,7 +24,7 @@ import node1 from "./node(1).svg";
 import mongoDB1 from "./mongoDB(1).svg";
 import postgres1 from "./postgres(1).svg";
 
-import preview from "./preview.png"
+import preview from "./preview.png";
 
 const images = [
   figma,
@@ -51,6 +51,7 @@ const images = [
   node1,
   mongoDB1,
   postgres1,
+  preview,
 ];
 
-export default { images, preview };
+export default { images };
