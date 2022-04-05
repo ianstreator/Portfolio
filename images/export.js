@@ -51,7 +51,6 @@ const images = [
   node1,
   mongoDB1,
   postgres1,
-  preview,
 ];
 
-export default { images };
+export default { images, preview };
