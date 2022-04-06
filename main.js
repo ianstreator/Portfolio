@@ -1,6 +1,12 @@
 import technologies from "./images/export.js";
-const ogImage = technologies.preview;
-console.log(ogImage)
+const imageLink = technologies.preview;
+// const og_img = document.createElement("meta")
+const previewWebsite = document.getElementById("og_img");
+const head = document.querySelector("head");
+previewWebsite.content = imageLink;
+
+head.append(og_img);
+console.log(imageLink);
 
 const mutedSkills = {};
 const coloredSkills = {};
