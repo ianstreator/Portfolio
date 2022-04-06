@@ -1,4 +1,5 @@
 import technologies from "./images/export.js";
+const ogImage = technologies.preview;
 
 const mutedSkills = {};
 const coloredSkills = {};
