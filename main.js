@@ -45,11 +45,14 @@ const c = canvas.getContext("2d");
 const width = 400;
 const height = 400;
 
+canvas.width = width
+canvas.height = height
+
 function setVelocity() {
   const X = Math.random() < 0.5 ? Math.random() : -Math.random();
   const Y = Math.random() < 0.5 ? -Math.random() : Math.random();
 
-  const velocity = { x: X / 3, y: Y / 3 };
+  const velocity = { x: X / 15, y: Y / 15 };
   return velocity;
 }
 
@@ -101,15 +104,15 @@ class Skill {
       const angle = Math.atan2(e.y - this.y, e.x - this.x);
 
       if (skill_dist_skill < this.r + e.r) {
-        this.velocity.x = -Math.cos(angle) / 3;
-        this.velocity.y = -Math.sin(angle) / 3;
+        this.velocity.x = -Math.cos(angle) / 15;
+        this.velocity.y = -Math.sin(angle) / 15;
       }
     });
 
     if (skill_dist_border > width / 2 - this.r) {
       const angle = Math.atan2(height / 2 - this.y, width / 2 - this.x);
-      this.velocity.x = Math.cos(angle) / 3;
-      this.velocity.y = Math.sin(angle) / 3;
+      this.velocity.x = Math.cos(angle) / 15;
+      this.velocity.y = Math.sin(angle) / 15;
     }
 
     if (mouse_dist_skill < this.r) {
@@ -146,22 +149,19 @@ class Skill {
   }
 }
 let x = 0;
-let y = 0;
+let y = height / 2;
 
 const skills = Object.values(mutedSkills).map((e, i) => {
   const imgName = e.split("/")[2].split(".")[0].split("(")[0];
   const img = document.createElement("img");
   img.src = e;
-  y++;
-  let ySet = 50;
-  if (y % 2) {
-    ySet = -50;
-  }
+  y % 3 ? ((y -= 50), (x += 30)) : ((y += 50), (x += 30));
+
   const skill = new Skill(
     img,
     imgName,
-    (x += 30),
-    height / 2 - 25 + ySet,
+    x,
+    y,
     25,
     setVelocity(),
     "black",
