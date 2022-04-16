@@ -12,6 +12,7 @@ html {
   --primary-color: #232f41;
   --secondary-color: #4a5566;
   --nav-color: hsla(216, 16%, 35%, 0.75);
+  --hexagon-BGcolor: #2b3a50;
 }
 
 body {
@@ -66,6 +67,7 @@ nav {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       width: 50rem;
+      padding: 0.5rem;
     }
   }
   .canvas {
@@ -73,15 +75,65 @@ nav {
     margin-right: 15rem;
     border-radius: 50%;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    position: relative;
   }
 }
+
 .divider {
-  height: 17.5rem;
-  display: block;
-  background-position: center;
-  background-image: url("./images/Divider.svg");
-  background-repeat: no-repeat;
-  background-size: 115%;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  min-height: 15rem;
+  overflow: hidden;
+}
+.even {
+  clear: left;
+}
+
+.odd {
+  margin-left: -106px;
+}
+.shapes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  & .hexagon-wrapper {
+    margin-left: 3px;
+    margin-bottom: -28px;
+    &:hover {
+      --hexagon-BGcolor: #acb4be;
+      --hexagon-hover: rgb(255, 255, 255);
+    }
+    & .hexagon {
+      width: 0;
+      transition: 750ms;
+      &.hex-top {
+        border-left: 52px solid transparent;
+        border-right: 52px solid transparent;
+        border-bottom: 30px solid var(--hexagon-BGcolor);
+      }
+      &.hex-mid {
+        width: 104px;
+        height: 60px;
+        background-color: var(--hexagon-BGcolor);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        & .hex-shade {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          box-shadow: 0px 0px 40px 30px var(--hexagon-hover);
+          z-index: -2;
+          margin: auto;
+        }
+      }
+      &.hex-bot {
+        border-left: 52px solid transparent;
+        border-right: 52px solid transparent;
+        border-top: 30px solid var(--hexagon-BGcolor);
+      }
+    }
+  }
 }
 
 .projects {
@@ -91,6 +143,7 @@ nav {
   margin-top: 2rem;
   margin-bottom: 15rem;
   margin-right: unset;
+  padding-top: 5rem;
   h1 {
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
@@ -142,7 +195,8 @@ nav {
           text-decoration: underline;
           position: absolute;
           margin-left: 2rem;
-          width: 40%;
+          width: 50%;
+          min-width: 50%;
           transition: 400ms;
         }
       }
@@ -155,14 +209,35 @@ nav {
             opacity: 1;
             filter: none;
           }
-          .link {
-            color: rgba(255, 255, 255, 0);
+        }
+        .link {
+          opacity: 0;
+        }
+        .card-info {
+          .github-code {
+            transition: 1500ms;
+            color: #dae6f5;
+            transform: rotateZ(45deg);
           }
         }
       }
       .card-info {
-        width: 15rem;
-        margin-right: 3rem;
+        min-width: 15rem;
+        max-width: fit-content;
+        margin-right: 2.5rem;
+        position: relative;
+        .github-code {
+          font-size: 3.5rem;
+          margin-right: 1rem;
+          top: 0;
+          right: 0;
+          position: absolute;
+          color: #acb4be6b;
+          transition: 400ms;
+          // &:hover {
+          //   transform: rotateZ(45deg);
+          // }
+        }
         h3 {
           font-size: 1.5rem;
           font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -173,6 +248,7 @@ nav {
           font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
           font-weight: 400;
           max-height: 2.25rem;
+          max-width: 15rem;
         }
         img {
           width: 15rem;
@@ -191,11 +267,13 @@ nav {
       .card-skills {
         width: auto;
         margin-left: auto;
+        margin-top: auto;
         display: flex;
         flex-flow: wrap-reverse;
         flex-direction: column;
         img {
           margin: 0.25rem;
+          width: 2.8rem;
         }
       }
     }
@@ -240,6 +318,10 @@ footer {
       float: unset;
     }
   }
+  .divider {
+    padding-top: 5rem;
+    padding-bottom: 7rem;
+  }
   .projects {
     margin-left: 0rem;
     margin-bottom: 8rem;
@@ -254,14 +336,10 @@ footer {
         a {
           img {
             height: 100px;
-          }
-        }
-        .link {
-          margin-left: 10rem;
-        }
-        .card-skills {
-          img {
-            width: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
           }
         }
       }
