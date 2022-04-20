@@ -90,6 +90,10 @@ nav ul li a {
   padding: 0.5rem;
 }
 
+.about .text a {
+  color: white;
+}
+
 .about .canvas {
   float: right;
   margin-right: 15rem;
