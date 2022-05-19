@@ -44,11 +44,18 @@ nav {
     li {
       margin: 1rem;
       list-style: none;
+
       a {
         text-decoration: none;
         font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
         color: white;
         font-size: 2rem;
+        padding: 0.25rem;
+        transition: 300ms;
+        text-decoration: underline 3px rgba(255, 255, 255, 0);
+        &:hover {
+          text-decoration-color: white;
+        }
       }
     }
   }
@@ -70,7 +77,11 @@ nav {
       padding: 0.5rem;
     }
     a {
-      color: white;
+      color: rgb(125, 142, 168);
+      transition: 200ms;
+      &:hover {
+        color: rgb(255, 200, 97);
+      }
     }
   }
   .canvas {
@@ -103,7 +114,7 @@ nav {
     margin-left: 3px;
     margin-bottom: -28px;
     &:hover {
-      --hexagon-BGcolor: #acb4be;
+      --hexagon-BGcolor: #cccccc;
       --hexagon-hover: rgb(255, 255, 255);
     }
     & .hexagon {

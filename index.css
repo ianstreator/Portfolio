@@ -72,6 +72,16 @@ nav ul li a {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: white;
   font-size: 2rem;
+  padding: 0.25rem;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+  -webkit-text-decoration: underline 3px rgba(255, 255, 255, 0);
+          text-decoration: underline 3px rgba(255, 255, 255, 0);
+}
+
+nav ul li a:hover {
+  -webkit-text-decoration-color: white;
+          text-decoration-color: white;
 }
 
 .about .text {
@@ -91,7 +101,13 @@ nav ul li a {
 }
 
 .about .text a {
-  color: white;
+  color: #7d8ea8;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+.about .text a:hover {
+  color: #ffc861;
 }
 
 .about .canvas {
@@ -137,7 +153,7 @@ nav ul li a {
 }
 
 .shapes .hexagon-wrapper:hover {
-  --hexagon-BGcolor: #acb4be;
+  --hexagon-BGcolor: #cccccc;
   --hexagon-hover: rgb(255, 255, 255);
 }
 
