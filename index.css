@@ -92,9 +92,6 @@ nav ul li a:hover {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .about .text {
@@ -134,6 +131,7 @@ nav ul li a:hover {
   border-width: 3px;
   border-radius: 12px;
   min-width: 40rem;
+  width: 50%;
   min-height: 30rem;
   margin-right: 2rem;
   margin-top: 2rem;

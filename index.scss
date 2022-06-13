@@ -66,7 +66,7 @@ nav {
   padding-left: 2rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  // justify-content: space-between;
   .text {
     margin-top: 2rem;
     min-width: 36rem;
@@ -100,6 +100,7 @@ nav {
     border-width: 3px;
     border-radius: 12px;
     min-width: 40rem;
+    width: 50%;
     min-height: 30rem;
     margin-right: 2rem;
     margin-top: 2rem;

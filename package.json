@@ -2,12 +2,18 @@
   "name": "ian-s-portfolio",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev:server": "nodemon server.js",
+    "dev:client": "vite",
     "build": "vite build",
     "serve": "vite preview"
   },
   "devDependencies": {
     "sass": "^1.44.0",
     "vite": "^2.6.4"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.16"
   }
 }

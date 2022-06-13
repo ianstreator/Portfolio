@@ -6,7 +6,7 @@ const clientHeight = divider.clientHeight;
 const hexWidth = 104;
 const hexHeight = 120;
 
-export function createDivider() {
+export default  function createDivider() {
   for (let i = 0; i * hexHeight < clientHeight * 1.5; i++) {
     if (i % 2 !== 0) {
       console.log("even");
