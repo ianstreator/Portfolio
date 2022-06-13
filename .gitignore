@@ -5,3 +5,4 @@ dist-ssr
 *.local
 future-images
 .env
+/future-images

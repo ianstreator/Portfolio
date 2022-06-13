@@ -15,9 +15,7 @@ app.get("/", (req, res) => {
 const WAKA_API_KEY = process.env.WAKA_KEY;
 const WAKA_BASE_URL = "https://wakatime.com/api/v1/";
 app.get("/waka", async (req, res) => {
-  console.log("hitting");
   try {
-    console.log("in try");
     const { data: wakaRes } = await axios.get(
       `${WAKA_BASE_URL}users/Ian19/stats/last_7_days?api_key=${WAKA_API_KEY}`
     );
@@ -26,10 +24,7 @@ app.get("/waka", async (req, res) => {
     res.status(400).json({
       error: "failed to fetch, make sure you are an authorized user.",
     });
-    console.error(err);
-    console.log("failed");
   }
-  console.log("finished");
 });
 
 const PORT = process.env.PORT || 4000;

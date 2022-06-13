@@ -1,14 +1,26 @@
+const stats_container = document.getElementById("waka_stats");
+const URL = window.location.href;
 export default async function wakaStats() {
-  console.log("hitting");
   const options = {
     headers: { "Content-Type": "application/json" },
   };
   try {
-    const res = await fetch("http://localhost:4000/waka", options);
+    const res = await fetch(`${URL}waka`, options);
     const data = await res.json();
-    console.log(data);
+
+    const langs = data.data.languages;
+    for (let i = 0; i < 4; i++) {
+      const language = langs[i];
+      const br = document.createElement("br");
+      const status = document.createElement("div");
+      status.style.cssText = `height:1rem; width:${
+        language.percent * 3
+      }px; background-color: white;`;
+      stats_container.append(language.name, status);
+      stats_container.append(br);
+    }
     return data;
   } catch (error) {
-    console.log(error);
+      console.error(error)
   }
 }
