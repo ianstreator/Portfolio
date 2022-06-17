@@ -19,6 +19,7 @@ app.get("/waka", async (req, res) => {
     const { data: wakaRes } = await axios.get(
       `${WAKA_BASE_URL}users/Ian19/stats/last_7_days?api_key=${WAKA_API_KEY}`
     );
+    console.log(wakaRes)
     res.status(200).json(wakaRes);
   } catch (err) {
     res.status(400).json({

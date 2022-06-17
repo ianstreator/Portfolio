@@ -111,6 +111,9 @@ nav {
       margin-left: 1.5rem;
       margin-top: 1.5rem;
     }
+    .waka_stats {
+      padding: 1.5rem;
+    }
   }
   
   // .canvas {
@@ -203,10 +206,17 @@ nav {
     .card {
       display: flex;
       flex-direction: row;
-      background-color: var(--secondary-color);
-      border-color: rgba(197, 197, 197, 0.521);
-      border-width: 0.1px;
-      border-style: inset;
+      // background-color: var(--secondary-color);
+      background-color: rgba(0, 0, 0, 0.25);
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      // border-color: rgba(197, 197, 197, 0.521);
+      // border-width: 0.005px;
+      // border-style: inset;
       min-width: 28rem;
       height: 15rem;
       border-radius: 0.5rem;
@@ -246,7 +256,7 @@ nav {
       &:hover,
       &:active {
         top: -0.75rem;
-        box-shadow: 0rem 1rem 1rem 0rem rgba(0, 0, 0, 0.5);
+        box-shadow: 0rem 1rem 1.5rem 0rem rgba(0, 0, 0, 0.5);
         a {
           img {
             opacity: 1;
