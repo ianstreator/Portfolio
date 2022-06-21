@@ -6,9 +6,10 @@ export default async function wakaStats() {
   };
   try {
     const res = await fetch(`${URL}waka`, options);
-    console.log(res)
     const data = await res.json();
-    console.log(data)
+    if (data.data.best_day === null) {
+      return null;
+    } 
     const langs = data.data.languages;
     for (let i = 0; i < 4; i++) {
       const language = langs[i];
@@ -22,6 +23,6 @@ export default async function wakaStats() {
     }
     return data;
   } catch (error) {
-      console.error(error)
+    console.error(error);
   }
 }

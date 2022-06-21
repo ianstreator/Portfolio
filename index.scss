@@ -66,9 +66,8 @@ nav {
   padding-left: 2rem;
   display: flex;
   flex-wrap: wrap;
-  // justify-content: space-between;
   .text {
-    margin-top: 2rem;
+    padding: 1rem;
     min-width: 36rem;
     width: 20%;
     h1 {
@@ -96,18 +95,20 @@ nav {
   .img_stats {
     border: var(--hexagon-BGcolor);
     background-color: var(--dark-accent-color);
+    display: flex;
     border-style: solid;
     border-width: 3px;
     border-radius: 12px;
-    min-width: 40rem;
-    width: 50%;
+    min-width: 50rem;
+    width: 50rem;
     min-height: 30rem;
     margin-right: 2rem;
     margin-top: 2rem;
+    position: relative;
     img {
       border-radius: 50%;
-      width:160px;
-      height:160px;
+      width: 160px;
+      height: 160px;
       margin-left: 1.5rem;
       margin-top: 1.5rem;
     }
@@ -115,7 +116,7 @@ nav {
       padding: 1.5rem;
     }
   }
-  
+
   // .canvas {
   //   float: right;
   //   margin-right: 15rem;
@@ -124,7 +125,6 @@ nav {
   //   position: relative;
   // }
 }
-
 
 .divider {
   padding-top: 3rem;
@@ -357,12 +357,22 @@ footer {
   html {
     font-size: 12px;
   }
+  body {
+    max-width: 100vw;
+  }
   .about {
     display: flex;
     flex-direction: column;
     align-items: center;
     .img_stats {
       min-width: 90%;
+      width: 30rem;
+      flex-direction: column;
+      .vert {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
       img {
         width: 128px;
         height: 128px;
@@ -370,12 +380,14 @@ footer {
     }
     .text {
       padding: unset;
-      padding-top: 2rem;
-      min-width: 90%;
+      padding: 2rem;
+      min-width: 60%;
+      width: unset;
+      width: 30rem;
       p {
         min-width: 40%;
         width: 100%;
-        max-width: 80%;
+        max-width: 90%;
         margin: unset;
       }
     }
